@@ -1,0 +1,5 @@
+
+server started at port 5000
+/ GET
+/api/getLogs GET
+server started at port 5000

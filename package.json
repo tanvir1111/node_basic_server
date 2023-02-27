@@ -1,0 +1,14 @@
+{
+  "name": "node_basic_server",
+  "version": "1.0.0",
+  "description": "\"Server without any libraries\"",
+  "main": "app.js",
+  "type": "module",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
