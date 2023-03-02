@@ -60,15 +60,16 @@ const server = createServer((req, res) => {
 
 
     }
-    else if (exists(root + req.url)) {
-        let filePath = root + req.url;
+    else if (exists(req.url)) {
+        let filePath = req.url;
         let stats = fs.statSync(filePath)
+
         res.writeHead(200, {
-            'Content-Type': 'text/*',
+            'Content-Type': 'text/html',
             'Content-Length': stats.size
         })
 
-        let readStream = fs.createReadStream(root + req.url)
+        let readStream = fs.createReadStream(req.url)
         // readStream.pipe(res)
         // let writeStream = fs.createWriteStream('./text2.txt', {})
         // readStream.pipe(writeStream)
@@ -81,12 +82,12 @@ const server = createServer((req, res) => {
             // console.log(chunk.length)
             console.log(`${completed} / ${stats.size}`)
             completed += chunk.length
-            res.write(`<br/> <b>${completed} / ${stats.size}</b><br/> `)
+            res.write(`<br/><br/> <b>${completed} / ${stats.size}</b><br/><br/> `)
 
             res.write(chunk.toString())
             readStream.pause()
 
-            setTimeout(() => { readStream.resume(); }, 1000)
+            setTimeout(() => { readStream.resume(); }, 10)
             // res.write(chunk.length.toString())
         }).on('end', () => readStream.close())
 
@@ -105,41 +106,3 @@ server.listen(PORT, () => {
 })
 
 
-// const root = os.homedir()
-
-// app.get('/', (req, res) => {
-//     res.send('hello')
-// })
-// app.get('*', (req, res) => {
-//     let stats = fs.statSync(root + req.originalUrl)
-//     console.log(stats.size);
-//     res.writeHead(200, {
-//         'Content-Type': 'text/*',
-//         'Content-Length': stats.size
-//     })
-
-//     let readStream = fs.createReadStream(root + req.originalUrl)
-//     // readStream.pipe(res)
-//     // // let writeStream = fs.createWriteStream('./text2.txt', {})
-//     // // readStream.pipe(writeStream)
-//     readStream.on('data', (chunk) => {
-//         console.log(chunk);
-//         console.log(chunk.length)
-//         res.write(chunk.toString())
-//         res.write(chunk.length.toString())
-//     })
-
-
-//     // console.log(data)
-//     return res.status(200)
-// })
-// app.listen(3000, () => {
-//     console.log("listening to 3000");
-// })
-
-
-// const PORT = process.env.PORT || 5000
-// server.listen(PORT, () => {
-//     writeLog("server started at port " + PORT);
-//     console.log('server listening to ' + PORT)
-// })
