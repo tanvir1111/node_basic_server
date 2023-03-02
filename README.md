@@ -2,9 +2,13 @@
 
 <b> This is a  Practice server for testing docker and streams in node</b>
 
-To run the server 
+To start the server 
 ```
-docker run tanvirahmmad/node-basic-server -d -p 3000:3000 
+docker run -d -p 3000:3000 --rm --name streamServer tanvirahmmad/node-basic-server
+``` 
+To stop the server 
+```
+docker stop streamServer
 ``` 
 
 open <b> localhost:3000 </b>
