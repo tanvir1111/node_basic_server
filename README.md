@@ -15,7 +15,7 @@ open <b> localhost:3000 </b>
 
 <b> Available routes :</b>
 
-* [localhost:3000](https://localhost:3000) - shows a video read with readStreams 
-* [localhost:3000/api/getLogs](https://localhost:3000/api/getLogs) - shows the logs of the server
-* [localhost:3000/app/lorem.txt](https://localhost:3000/app/lorem.txt)- shows big text file read with readstream
+* [localhost:3000](http://localhost:3000) - shows a video read with readStreams 
+* [localhost:3000/api/getLogs](http://localhost:3000/api/getLogs) - shows the logs of the server
+* [localhost:3000/app/lorem.txt](http://localhost:3000/app/lorem.txt)- shows big text file read with readstream
 
